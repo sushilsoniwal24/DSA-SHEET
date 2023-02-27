@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 public class P_01_Reverse_Array {
 
+    // T.C = O(n) & S.C = O(n).
     public static void reverse1(int[] arr) {
         int n = arr.length, idx = n - 1;
         int[] temp = new int[n];
@@ -11,6 +12,7 @@ public class P_01_Reverse_Array {
         System.arraycopy(temp, 0, arr, 0, n);
     }
 
+    // T.C = O(n) & S.C = O(1).
     public static void reverse2(int[] arr) {
         int n = arr.length, start_idx = 0, end_idx = n - 1, temp;
         while (start_idx < end_idx) {
