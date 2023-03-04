@@ -1,5 +1,7 @@
 public class P_22_Peak_Index_In_Mountain_Array {
 
+    // https://leetcode.com/problems/peak-index-in-a-mountain-array/description/
+
     // ? T.C = O(n) & S.C = O(1).
     public static int peakIndexInMountainArray1(int[] arr) {
         int max = 0;
@@ -10,6 +12,7 @@ public class P_22_Peak_Index_In_Mountain_Array {
         return max;
     }
 
+    // * T.C = O(log n) & S.C = O(1).
     public static int peakIndexInMountainArray2(int[] arr) {
         int left = 0;
         int right = arr.length - 1;
