@@ -12,12 +12,12 @@ public class P_34_Split_Array_Largest_Sum {
             }
         }
 
-        int low = maxNum, high = sum,ans=0;
+        int low = maxNum, high = sum, ans = 0;
         while (low <= high) {
             int mid = low + (high - low) / 2;
             if (isValidSplit(nums, mid, m)) {
-                ans=mid;
-                high = mid-1;
+                ans = mid;
+                high = mid - 1;
             } else {
                 low = mid + 1;
             }
@@ -28,12 +28,21 @@ public class P_34_Split_Array_Largest_Sum {
     private static boolean isValidSplit(int[] nums, int targetSum, int numSplits) {
         int currentSum = 0, numGroups = 1;
         for (int num : nums) {
-            currentSum += num;
-            if (currentSum > targetSum) {
+            if (currentSum + num > targetSum) {
                 currentSum = num;
                 numGroups++;
+            } else {
+                currentSum += num;
+            }
+            if (numGroups > numSplits) {
+                return false;
             }
         }
-        return (numGroups <= numSplits);
+        return true;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {7, 2, 5, 10, 8};
+        System.out.println(splitArray(nums, 2));
     }
 }
